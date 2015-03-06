@@ -57,4 +57,3 @@ $modx->regClientScript('<script type="text/javascript">
 </script>');
 
 return '';
-
