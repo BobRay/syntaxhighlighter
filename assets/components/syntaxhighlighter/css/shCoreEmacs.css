@@ -1,19 +1,20 @@
 /**
- * SyntaxHighlighter
- * http://alexgorbatchev.com/SyntaxHighlighter
- *
- * SyntaxHighlighter is donationware. If you are using it, please donate.
- * http://alexgorbatchev.com/SyntaxHighlighter/donate.html
- *
- * @version
- * 3.0.83 (July 02 2010)
- * 
- * @copyright
- * Copyright (C) 2004-2010 Alex Gorbatchev.
- *
- * @license
- * Dual licensed under the MIT and GPL licenses.
- */
+* SyntaxHighlighter
+* http://alexgorbatchev.com/SyntaxHighlighter
+*
+* SyntaxHighlighter is donationware. If you are using it, please donate.
+* http://alexgorbatchev.com/SyntaxHighlighter/donate.html
+*
+* @version
+* 3.0.83 (July 02 2010)
+*
+* @copyright
+* Copyright (C) 2004-2010 Alex Gorbatchev.
+*
+* @license
+* Dual licensed under the MIT and GPL licenses.
+*/
+
 .syntaxhighlighter a,
 .syntaxhighlighter div,
 .syntaxhighlighter code,
@@ -81,10 +82,10 @@
 .syntaxhighlighter table td.code {
   width: 100% !important;
 }
-.syntaxhighlighter table td.code .container {
+.syntaxhighlighter table td.code .sh_container {
   position: relative !important;
 }
-.syntaxhighlighter table td.code .container textarea {
+.syntaxhighlighter table td.code .sh_container textarea {
   box-sizing: border-box !important;
   position: absolute !important;
   left: 0 !important;
@@ -104,7 +105,7 @@
 .syntaxhighlighter table td.code .line {
   padding: 0 1em !important;
 }
-.syntaxhighlighter.nogutter td.code .container textarea, .syntaxhighlighter.nogutter td.code .line {
+.syntaxhighlighter.nogutter td.code .sh_container textarea, .syntaxhighlighter.nogutter td.code .line {
   padding-left: 0em !important;
 }
 .syntaxhighlighter.show {

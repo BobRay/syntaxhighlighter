@@ -43,6 +43,7 @@ $brushArray = explode(',', $brushes);
 
 $baseURL = $modx->getOption('sh.assets_url', null, $modx->getOption('assets_url') . 'components/syntaxhighlighter/');
 
+$modx->regClientStartupScript($baseURL . 'scripts/XRegExp.js');
 $modx->regClientStartupScript($baseURL . 'scripts/shCore.js');
 
 foreach($brushArray as $brush) {
@@ -56,4 +57,3 @@ $modx->regClientScript('<script type="text/javascript">
 </script>');
 
 return '';
-
