@@ -126,7 +126,7 @@ var sh = {
 		url							: /\w+:\/\/[\w-.\/?%&=:@;]*/g,
 		
 		/** <?= ?> tags. */
-		phpScriptTags 				: { left: /(&lt;|<)\?=?/g, right: /\?(&gt;|>)/g },
+		/* phpScriptTags 				: { left: /(&lt;|<)\?=?/g, right: /\?(&gt;|>)/g }, */
 		
 		/** <%= %> tags. */
 		aspScriptTags				: { left: /(&lt;|<)%=?/g, right: /%(&gt;|>)/g },
