@@ -5,8 +5,8 @@
  * Copyright 2011 Bob Ray <http://bobsguides.com>
  *
  * @author Bob Ray <http://bobsguides.com>
- * @version Version 1.0.0 Beta-1
- * 11/07/2011
+ * @version Version 1.0.1 Beta-1
+ * 09/30/2015
  *
  * SyntaxHighlighter is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -38,8 +38,10 @@
 /* only do this if you need lexicon strings */
 //$modx->lexicon->load('syntaxhighlighter:default');
 
+$default_theme = !empty($modx->getOption('syntaxhighlighter.theme')) ? $modx->getOption('syntaxhighlighter.theme') : 'Default' ;
+
 $brushes = empty($scriptProperties['brushes'])? 'JScript,Xml,Php,Css,Plain' : $scriptProperties['brushes'];
-$theme = empty($scriptProperties['theme'])? 'Default' : $scriptProperties['theme'];
+$theme = empty($scriptProperties['theme'])? $default_theme : $scriptProperties['theme'];
 
 $brushArray = explode(',', $brushes);
 
@@ -51,8 +53,8 @@ foreach($brushArray as $brush) {
     $modx->regClientStartupScript($baseURL . 'scripts/' . 'shBrush' . $brush . '.js');
 }
 
-$modx->regClientCss($baseURL . 'css/' . 'shCore.css' );
-$modx->regClientCss($baseURL . 'css/' . "shTheme$theme.css" );
+$modx->regClientCss($baseURL . 'css/' . 'core.css' );
+$modx->regClientCss($baseURL . 'css/theme/' . "$theme.css" );
 $modx->regClientScript('<script type="text/javascript">
      SyntaxHighlighter.all();
 </script>');

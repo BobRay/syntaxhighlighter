@@ -88,7 +88,7 @@
 .syntaxhighlighter .variable {
   color: #ffaa3e !important;
 }
-.syntaxhighlighter .value {
+.syntaxhighlighter .value, .syntaxhighlighter .numbers {
   color: #009900 !important;
 }
 .syntaxhighlighter .functions {

@@ -32,3 +32,7 @@
  */
 $_lang['sh_desc'] = 'SyntaxHighlighter';
 
+//Settings
+$_lang['area_general'] = 'General Settings';
+$_lang['setting_syntaxhighlighter.theme'] = 'Default Theme';
+$_lang['setting_syntaxhighlighter.theme_desc'] = 'Availbale themes: Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, RDark';

@@ -35,7 +35,7 @@
 /* Set package info be sure to set all of these */
 define('PKG_NAME','SyntaxHighlighter');
 define('PKG_NAME_LOWER','syntaxhighlighter');
-define('PKG_VERSION','1.0.0');
+define('PKG_VERSION','1.0.1');
 define('PKG_RELEASE','beta1');
 define('PKG_CATEGORY','SyntaxHighlighter');
 
@@ -258,6 +258,22 @@ $builder->setPackageAttributes(array(
         'source' => $sources['install_options'].'user.input.php',
     ), */
 ));
+
+/* Finally, transport the settings
+ */
+$settings = include_once $sources['data'].'transport.settings.php';
+$attributes= array(
+	xPDOTransport::UNIQUE_KEY => 'key',
+	xPDOTransport::PRESERVE_KEYS => true,
+	xPDOTransport::UPDATE_OBJECT => false,
+	);
+if (!is_array($settings)) { $modx->log(modX::LOG_LEVEL_FATAL,'Adding settings failed.'); }
+foreach ($settings as $setting) {
+	$vehicle = $builder->createVehicle($setting,$attributes);
+	$builder->putVehicle($vehicle);
+}
+$modx->log(modX::LOG_LEVEL_INFO,'Packaged in '.count($settings).' system settings.'); flush();
+unset($settings,$setting,$attributes);
 
 /* Last step - zip up the package */
 $builder->pack();

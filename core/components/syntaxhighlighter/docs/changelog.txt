@@ -1,5 +1,14 @@
 Changelog for SyntaxHighlighter
 
+SyntaxHighlighter 1.0.1
+-----------------------
+Added a setting for the default theme
+Added a theme property in the snippet
+Added syntax highlighting for numbers in JScript
+Added a numbers css class to differentiate numbers and values in the same theme
+Remove shCore theme files
+Moved themes to css/theme/ folder
+
 SyntaxHighlighter 1.0.0
--------------------
+-----------------------
 Initial Version
