@@ -26,13 +26,9 @@
  * @subpackage lexicon
  */
 
-/* syntaxhighlighter example strings -
- * These would be used for messages displayed by your component
- * (e.g. error messages, prompts, etc.).
- */
 $_lang['sh_desc'] = 'SyntaxHighlighter';
 
 //Settings
 $_lang['area_general'] = 'General Settings';
 $_lang['setting_syntaxhighlighter.theme'] = 'Default Theme';
-$_lang['setting_syntaxhighlighter.theme_desc'] = 'Availbale themes: Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, RDark';
+$_lang['setting_syntaxhighlighter.theme_desc'] = 'Sets the default theme for SyntaxHighlighter -- Available themes: Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, RDark';

@@ -30,4 +30,4 @@
 
 /* Used for both snippet and plugin */
 
-$_lang['sh_brushes_desc'] = 'defines brush files to be loaded. default: "JScript,Xml,Php,Css,Plain"';
+$_lang['sh_brushes_desc'] = 'defines brush files to be loaded. default: "JScript,Xml,Php,Css,Plain" -- available brushes: AppleScript, AS3, Bash, ColdFusion, Cpp, CSharp, Css, Delphi, Diff, Erlang, Groovy, Java, JavaFX, JScript, Perl, Php, Plain, PowerShell, Python, Ruby, Sass, Scala, Sql, Vb, Xml';
