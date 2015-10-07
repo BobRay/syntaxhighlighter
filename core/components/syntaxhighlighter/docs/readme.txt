@@ -3,6 +3,7 @@ Plugins: SyntaxHighlighter
 --------------------
 Author: Alex Gorbatchev
 Author: Bob Ray <http://bobsguides.com>
+Theme property and updates thanks to AlexZem
 
 Official Documentation: http://bobsguides.com/syntaxhighlighter-tutorial.html
 Bugs and Feature Requests: https://github.com/BobRay/syntaxhighlighter

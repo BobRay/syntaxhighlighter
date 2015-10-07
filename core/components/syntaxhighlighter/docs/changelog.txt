@@ -2,6 +2,7 @@ Changelog for SyntaxHighlighter
 
 SyntaxHighlighter 1.0.1
 -----------------------
+(Theme property and updates thanks to AlexZem)
 Added a setting for the default theme
 Added a theme property in the snippet
 Added syntax highlighting for numbers in JScript

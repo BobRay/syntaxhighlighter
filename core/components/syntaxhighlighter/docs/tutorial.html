@@ -1,4 +1,4 @@
-<p>SyntaxHighlighter provides front-end syntax highlighting for MODX Revolution.  SyntaxHighlighter is a Revolution version of Alex Gorbatchev's JavaScript Syntax Highligher. The plugin and snippet code itself and the installer are mine, but the rest of the code is Alex's. If you use Syntax Highlighter, you're encouraged to donate to Alex's project <a href="http://alexgorbatchev.com/SyntaxHighlighter/donate.html"> here</a>.</p>
+<p>SyntaxHighlighter provides front-end syntax highlighting for MODX Revolution.  SyntaxHighlighter is a Revolution version of Alex Gorbatchev's JavaScript Syntax Highligher. The plugin and snippet code itself and the installer are mine, but the rest of the code is Alex's. If you use Syntax Highlighter, you're encouraged to donate to Alex's project <a href="http://alexgorbatchev.com/SyntaxHighlighter/donate.html"> here</a>. Theme property and updates thanks to AlexZem</p>
 
 <p>The SyntaxHighlighter package installs both a plugin and a snippet. Either one will highlight just about any kind of code and will provide line numbers in the &quot;gutter&quot; at the left side of the code. The line numbers can be turned off if you don't want them. You can use either the plugin or the snippet, but not both. For maximum speed, use neither one (see the section below on Speed Considerations).</p>
 
@@ -11,7 +11,7 @@
 
 <h3>The System Setting</h3>
 
-<p>The <fixedpre>syntaxhighlighter.theme</fixedpre> System Setting sets the default theme to be used by SyntaxHighlighter. The theme will be used throughout the site. The available themes are: Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, and RDark. If you use the snippet, you can override the default theme on a particular page by using the &amp;theme property in the snippet tag.</p>
+<p>The <fixedpre>syntaxhighlighter.theme</fixedpre> System Setting sets the default theme to be used by SyntaxHighlighter. The theme will be used throughout the site. The available themes are: Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, and RDark. If you use the snippet, you can override the default theme on a particular page by using the <fixedpre>&theme</fixedpre> property in the snippet tag.</p>
 
 <br />
 <div class="box">
@@ -49,6 +49,8 @@
 <p>When you specify the brush in the <fixedpre><pre></fixedpre> tag, however, you must use the lower-case alias for the brush. In the case of the JScript brush, the alias is js. The default brush aliases are php, css, xml, js, and plain. Note that xml is used to highlight both XML and HTML. For other brushes, you can look at the end of the brush.js file that's being included to find out what the alias is, though it's usually a lowercase version of the code type (e.g., python, ruby, sql, perl, java, vb, bash, csharp, etc.).</p>
 
 <p>If you specify a brush in the <fixedpre><pre></fixedpre> tag that is not loaded in the <fixedpre>&brush</fixedpre> property, a JavaScript alert will pop up and tell you the name of the missing brush.</p>
+
+<p>Important: The brushes to be loaded by the <fixedpre>&brushes</fixedpre> property are case-sensitive and must match the brush-name part of the file name. When you specify a brush in a <fixedpre><pre></fixedpre> tag, however, the brush name must be all lowercase.</p>
 
 <h3>Options</h3>
 <p>Various options can be specified in the <fixedpre><pre></fixedpre> tag by adding them after the class specification. The full list of options can be found <a href="http://alexgorbatchev.com/SyntaxHighlighter/manual/configuration/">here</a>. Here's what they look like in a tag:</p>

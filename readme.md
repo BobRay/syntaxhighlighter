@@ -4,6 +4,8 @@
 
 **Author:** Bob Ray <http://bobsguides.com> [Bob's Guides](http://bobsguides.com)
 
+Theme property and updates thanks to AlexZem
+
 Documentation is available at [Bob's Guides](http://bobsguides.com/syntaxhighlighter-tutorial.html)
 
 SyntaxHighlighter is fairly straight port of Alex Gorbatchev's great JS syntax highlighter, adapted for MODX Revolution. The package includes both a plugin and a snippet version of the highlighter. All of the code in this component, other than the plugin, snippet, and install script, was written by Alex Gorbatchev.
@@ -11,9 +13,9 @@ SyntaxHighlighter is fairly straight port of Alex Gorbatchev's great JS syntax h
 ##Usage
 ###Step 1
 
-Add the SyntaxHighlighter snippet on the page that needs syntax highlighting.
+Add the SyntaxHighlighter snippet on the page that needs syntax highlighting (or enable the SyntaxHighlighter plugin -- don't do both).
 
-[[!SyntaxHighlighter? &brushes=`{BRUSH,BRUSH}` &theme=`{THEME}`]]
+[[!SyntaxHighlighter? &brushes=`Brush1,Brish2}` &theme=`themeName`]]
 
 1. `&brushes` - Default: `JScript,Xml,Php,Css,Plain`
 2. `&theme` - Default: `Default`
@@ -23,6 +25,8 @@ Add the SyntaxHighlighter snippet on the page that needs syntax highlighting.
 AppleScript, AS3, Bash, ColdFusion, Cpp, CSharp, Css, Delphi, Diff, Erlang, Groovy, Java, JavaFX, JScript, Perl, Php, Plain, PowerShell, Python, Ruby, Sass, Scala, Sql, Vb, Xml
 
 **List of available themes:**
+
+Theme can be set in the syntaxhighlighter.theme System Setting
 
 Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, RDark
 
