@@ -68,6 +68,7 @@ $modx->log(xPDO::LOG_LEVEL_INFO,'Running PHP Resolver.');
 switch($options[xPDOTransport::PACKAGE_ACTION]) {
     /* This code will execute during an install */
     case xPDOTransport::ACTION_INSTALL:
+
         /* Assign plugins to System events */
         if ($hasPlugins) {
             foreach($plugins as $k => $plugin) {
@@ -205,6 +206,14 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
         /* put any upgrade tasks (if any) here such as removing
            obsolete files, settings, elements, resources, etc.
         */
+        /* Correct System Setting value */
+        $setting = $modx->getObject('modSystemSetting', array('key' => 'syntaxhighlighter.theme'));
+        if ($setting) {
+            if ($setting->get('value') == 'default') {
+                $setting->set('value', 'Default');
+                $setting->save();
+            }
+        }
 
         $success = true;
         break;
