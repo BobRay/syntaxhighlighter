@@ -31,17 +31,19 @@
  *
  * @package syntaxhighlighter
  *
- * @property brushes (string) comma-separated list of brushes to load
- * @property theme (string) name of theme (Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, RDark)
+ * @property $brushes (string) comma-separated list of brushes to load
+ * @property $theme (string) name of theme (Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, RDark)
  */
 
-/* only do this if you need lexicon strings */
-//$modx->lexicon->load('syntaxhighlighter:default');
+/** @var  $modx modX */
+/** @var  $scriptProperties array */
 
-$default_theme = !empty($modx->getOption('syntaxhighlighter.theme')) ? $modx->getOption('syntaxhighlighter.theme') : 'Default' ;
+
+$default_theme = $modx->getOption('syntaxhighlighter.theme', null, 'Default', true);
+$theme = $modx->getOption('theme', $scriptProperties, '', true);
+$theme = !empty($theme) ? $theme : $default_theme;
 
 $brushes = empty($scriptProperties['brushes'])? 'JScript,Xml,Php,Css,Plain' : $scriptProperties['brushes'];
-$theme = empty($scriptProperties['theme'])? $default_theme : $scriptProperties['theme'];
 
 $brushArray = explode(',', $brushes);
 
