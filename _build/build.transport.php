@@ -36,7 +36,7 @@
 define('PKG_NAME','SyntaxHighlighter');
 define('PKG_NAME_LOWER','syntaxhighlighter');
 define('PKG_VERSION','1.0.1');
-define('PKG_RELEASE','beta1');
+define('PKG_RELEASE','pl');
 define('PKG_CATEGORY','SyntaxHighlighter');
 
 /* Set package options - you can turn these on one-by-one
