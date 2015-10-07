@@ -4,7 +4,7 @@ $settings['theme'] = $modx->newObject('modSystemSetting');
 $settings['theme']->fromArray(array(
 	'key' => 'syntaxhighlighter.theme',
 	'xtype' => 'textfield',
-	'value' => 'default',
+	'value' => 'Default',
 	'namespace' => 'syntaxhighlighter',
 	'area' => 'general'
 	), '', true, true);
