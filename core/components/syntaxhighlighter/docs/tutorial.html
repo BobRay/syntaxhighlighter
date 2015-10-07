@@ -9,6 +9,10 @@
 
 <p>The various kinds of highlighting &mdash; one for each type of code (HTML, PHP, CSS, etc.) &mdash; are called &quot;brushes&quot;. The <fixedpre>&brushes</fixedpre> property of the snippet will determine which brushes are loaded. For the plugin, you must specify every brush used on the site in the <fixedpre>&brushes</fixedpre> property.</p>
 
+<h3>The System Setting</h3>
+
+<p>The <fixedpre>syntaxhighlighter.theme</fixedpre> System Setting sets the default theme to be used by SyntaxHighlighter. The theme will be used throughout the site. The available themes are: Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, and RDark. If you use the snippet, you can override the default theme on a particular page by using the &amp;theme property in the snippet tag.</p>
+
 <h3>The Snippet</h3>
 <p>The snippet is particularly useful if you only have code on a few pages, or if different pages have different kinds of code. You can specify the brushes to load in the snippet tag so that only the brushes used on the page are loaded. If no brushes are specified in the tag, the default brushes (JScript,Xml,Php,Css,Plain) are loaded. To highlight code on a page, place a SyntaxHighlighter snippet tag at the top of the page content (or in the template):</p>
 
