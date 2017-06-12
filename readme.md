@@ -1,8 +1,8 @@
 #SyntaxHighlighter Extra for MODx Revolution
 
-**Author:** Alex Gorbatchev <http://alexgorbatchev.com/SyntaxHighlighter/> [Syntax Highlighter](http://alexgorbatchev.com/SyntaxHighlighter/)
+**Author:** Alex Gorbatchev [Syntax Highlighter](http://alexgorbatchev.com/SyntaxHighlighter/)
 
-**Author:** Bob Ray <http://bobsguides.com> [Bob's Guides](http://bobsguides.com)
+**Author:** Bob Ray [Bob's Guides](http://bobsguides.com)
 
 Theme property and updates thanks to AlexZem
 
