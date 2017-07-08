@@ -2,7 +2,7 @@
 
 /**
  * Default properties for the SyntaxHighlighter snippet and plugin
- * @author Bob Ray <http://bobsguides.com>
+ * @author Bob Ray <https://bobsguides.com>
  * 11/07/2011
  *
  * @package syntaxhighlighter

@@ -2,9 +2,9 @@
 /**
  * SyntaxHighlighter snippet
  *
- * Copyright 2011-2015 Bob Ray <http://bobsguides.com>
+ * Copyright 2011-2017 Bob Ray <https://bobsguides.com>
  *
- * @author Bob Ray <http://bobsguides.com>
+ * @author Bob Ray <https://bobsguides.com>
  * @version Version 1.0.1 Beta-1
  * 09/30/2015
  *
@@ -25,7 +25,7 @@
  */
 
 /**
- * MODx SyntaxHighlighter snippet
+ * MODX SyntaxHighlighter snippet
  *
  * Description: Revolution version of Alex Gorbatchev's Syntax Highlighter JS script
  *
