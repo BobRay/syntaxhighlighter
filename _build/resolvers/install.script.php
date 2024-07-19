@@ -34,7 +34,19 @@
  * use $object->xpdo
  */
 
-$modx =& $object->xpdo;
+
+/* @var modTransportPackage $transport */
+/* @var $object xPDO */
+
+if ($transport) {
+ $modx =& $transport->xpdo;
+} else {
+ $modx =& $object->xpdo;
+}
+
+$prefix = $modx->getVersionData()['version'] >= 3
+   ? 'MODX\Revolution\\'
+   : '';
 
 /* Remember that the files in the _build directory are not available
  * here, and we don't know the IDs of any objects, so resources,
@@ -65,8 +77,10 @@ $hasTemplateVariables = false;
 $success = true;
 
 $modx->log(xPDO::LOG_LEVEL_INFO,'Running PHP Resolver.');
+/* @var $options array */
+
 switch($options[xPDOTransport::PACKAGE_ACTION]) {
-    /* This code will execute during an install */
+    /* This code will execute during installation */
     case xPDOTransport::ACTION_INSTALL:
 
         /* Assign plugins to System events */
