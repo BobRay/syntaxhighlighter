@@ -158,60 +158,6 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
                 $modx->log(xPDO::LOG_LEVEL_INFO,'Failed to attach TVs to Templates');
             }
         }
-
-
-        /* This section connects MyPropertySet1 to MySnippet1.
-         * You'll have to modify the code to meet your needs.
-         *
-         * Note that if you want to connect a bunch of property sets to a bunch of
-         * elements, since all elements and property sets are in our category
-         * we could get the category ID and then get the objects with two
-         * $modx->getCollection() calls and put the code below in a double foreach loop.
-         *
-         * For example, to connect all our property sets to all our snippets, we'd do this:
-         *
-         * $category = $modx->getObject('modCategory', array('category','SyntaxHighlighter'));
-         * $cId = $category->get('id');
-         * $snippets = $modx->getCollection('modSnippet',array('category'=>$cId));
-         * $propertySets = $modx->getCollection('modPropertySet',array('category'=>$cId));
-         * foreach($snippets as $snippet) {
-         *     foreach($propertySets as $propertySet {
-         *         $intersect = $modx->newObject('modElementPropertySet');
-         *         $intersect->set('element',$snippet->get('id'));
-         *         $intersect->set('element_class','modSnippet');
-         *         $intersect->set('property_set',$propertySet->get('id'));
-         *         $intersect->save();
-         *     }
-         * }
-         *
-         */
-
-         if (false) {
-             $snippetName = 'MySnippet1';
-             $propertySetName = 'MyPropertySet1';
-             $snippet = $modx->getObject('modSnippet', array('name'=>$snippetName));
-             if ($snippet) {
-                 $propertySet = $modx->getObject('modPropertySet',array('name'=>$propertySetName));
-                 if ($propertySet) {
-                     $intersect = $modx->newObject('modElementPropertySet');
-                     $intersect->set('element',$snippet->get('id'));
-                     $intersect->set('element_class','modSnippet');
-                     $intersect->set('property_set',$propertySet->get('id'));
-                     if ($intersect->save()) {
-                         $modx->log(xPDO::LOG_LEVEL_INFO,'Connected snippet ' . $snippetName .  ' to property set ' . $propertySetName);
-                     } else {
-                         $modx->log(xPDO::LOG_LEVEL_INFO,'Failed to connect snippet ' . $snippetName .  ' to property set ' . $propertySetName);
-                     }
-
-                 } else {
-                     $modx->log(xPDO::LOG_LEVEL_INFO,'Could not retrieve property set: ' . $propertySetName);
-                 }
-
-             } else {
-                     $modx->log(xPDO::LOG_LEVEL_INFO,'Could not retrieve snippet: ' . $snippetName);
-             }
-         }
-
         break;
 
     /* This code will execute during an upgrade */
