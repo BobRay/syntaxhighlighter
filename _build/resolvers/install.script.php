@@ -86,7 +86,7 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
         /* Assign plugins to System events */
         if ($hasPlugins) {
             foreach($plugins as $k => $plugin) {
-                $pluginObj = $modx->getObject('modPlugin',array('name'=>$plugin));
+                $pluginObj = $modx->getObject($prefix . 'modPlugin',array('name'=>$plugin));
                 if (! $pluginObj) $modx->log(xPDO::LOG_LEVEL_INFO,'cannot get object: ' . $plugin);
                 if (empty($pluginEvents)) $modx->log(xPDO::LOG_LEVEL_INFO,'Cannot get System Events');
                 if (!empty ($pluginEvents) && $pluginObj) {
@@ -94,7 +94,7 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
                     $modx->log(xPDO::LOG_LEVEL_INFO,'Assigning Events to Plugin ' . $plugin);
 
                     foreach($pluginEvents as $k => $event) {
-                        $intersect = $modx->newObject('modPluginEvent');
+                        $intersect = $modx->newObject($prefix . 'modPluginEvent');
                         $intersect->set('event',$event);
                         $intersect->set('pluginid',$pluginObj->get('id'));
                         $intersect->save();
@@ -109,7 +109,7 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
          */
 
         if ($hasTemplates && $hasTemplateVariables) {
-            $categoryObj = $modx->getObject('modCategory',array('category'=> $category));
+            $categoryObj = $modx->getObject($prefix . 'modCategory',array('category'=> $category));
             if (! $categoryObj) {
                 $modx->log(xPDO::LOG_LEVEL_INFO,'Coult not retrieve category object: ' . $category);
             } else {
@@ -118,15 +118,15 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
 
             $modx->log(xPDO::LOG_LEVEL_INFO,'Attempting to attach TVs to Templates');
             $ok = true;
-            $templates = $modx->getCollection('modTemplate', array('category'=> $categoryId));
+            $templates = $modx->getCollection($prefix . 'modTemplate', array('category'=> $categoryId));
             if (!empty($templates)) {
 
-                $tvs = $modx->getCollection('modTemplateVar', array('category'=> $categoryId));
+                $tvs = $modx->getCollection($prefix . 'modTemplateVar', array('category'=> $categoryId));
 
                 if (!empty($tvs)) {
                     foreach ($templates as $template) {
                         foreach($tvs as $tv) {
-                            $tvt = $modx->newObject('modTemplateVarTemplate');
+                            $tvt = $modx->newObject($prefix . 'modTemplateVarTemplate');
                             if ($tvt) {
                                 $r1 = $tvt->set('templateid', $template->get('id'));
                                 $r2 = $tvt->set('tmplvarid', $tv->get('id'));
@@ -167,7 +167,7 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
            obsolete files, settings, elements, resources, etc.
         */
         /* Correct System Setting value */
-        $setting = $modx->getObject('modSystemSetting', array('key' => 'syntaxhighlighter.theme'));
+        $setting = $modx->getObject($prefix . 'modSystemSetting', array('key' => 'syntaxhighlighter.theme'));
         if ($setting) {
             if ($setting->get('value') == 'default') {
                 $setting->set('value', 'Default');
@@ -178,7 +178,7 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
         $success = true;
         break;
 
-    /* This code will execute during an uninstall */
+    /* This code will execute during uninstallation */
     case xPDOTransport::ACTION_UNINSTALL:
         $modx->log(xPDO::LOG_LEVEL_INFO,'Uninstalling . . .');
         $success = true;
