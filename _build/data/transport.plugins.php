@@ -1,7 +1,7 @@
 <?php
 /**
  * SyntaxHighlighter transport plugins
- * Copyright 2011-2017 Bob Ray <https://bobsguides.com>
+ * Copyright 2011-2024 Bob Ray <https://bobsguides.com>
  * @author Bob Ray <https://bobsguides.com>
  * 11/07/2011
  *

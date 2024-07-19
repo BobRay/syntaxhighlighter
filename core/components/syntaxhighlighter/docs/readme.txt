@@ -3,7 +3,7 @@ Plugins: SyntaxHighlighter
 --------------------
 Author: Alex Gorbatchev
 Author: Bob Ray <https://bobsguides.com>
-Copyright 2011-2017 Bob Ray
+Copyright 2011-2024 Bob Ray
 
 Theme property and updates thanks to AlexZem
 

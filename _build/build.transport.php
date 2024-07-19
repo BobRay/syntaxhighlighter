@@ -2,7 +2,7 @@
 /**
  * SyntaxHighlighter Build Script
  *
- * Copyright 2011-2017 Bob Ray <https://bobsguides.com>
+ * Copyright 2011-2024 Bob Ray <https://bobsguides.com>
  *
  * SyntaxHighlighter is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -143,7 +143,7 @@ if ($hasPropertySets) { /* add property sets */
 }
 if ($hasChunks) { /* add chunks  */
     $modx->log(modX::LOG_LEVEL_INFO,'Adding in chunks.');
-    /* note: Chunks' default properties are set in transport.chunks.php */    
+    /* note: Chunks' default properties are set in transport.chunks.php */
     $chunks = include $sources['data'].'transport.chunks.php';
     if (is_array($chunks)) {
         $category->addMany($chunks, 'Chunks');
@@ -227,7 +227,7 @@ if ($hasCore) {
         ));
 }
 
-/* This section transfers every file in the local 
+/* This section transfers every file in the local
  syntaxhighlighters/syntaxhighlighter/core directory to the
  target site's core/syntaxhighlighter directory on install.
  If the core has been renamed or moved, they will still
@@ -243,12 +243,12 @@ if ($hasCore) {
 
 
 /* Put the category vehicle (with all the stuff we added to the
- * category) into the package 
+ * category) into the package
  */
 $builder->putVehicle($vehicle);
 
 /* Next-to-last step - pack in the license file, readme.txt, changelog,
- * and setup options 
+ * and setup options
  */
 $builder->setPackageAttributes(array(
     'license' => file_get_contents($sources['docs'] . 'license.txt'),

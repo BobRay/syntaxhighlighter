@@ -3,7 +3,7 @@
 /**
  * SyntaxHighlighter resolver script - runs on install.
  *
- * Copyright 2011-2017 Bob Ray <https://bobsguides.com>
+ * Copyright 2011-2024 Bob Ray <https://bobsguides.com>
  * @author Bob Ray <https://bobsguides.com>
  * 11/07/2011
  *
@@ -37,7 +37,7 @@
 $modx =& $object->xpdo;
 
 /* Remember that the files in the _build directory are not available
- * here and we don't know the IDs of any objects, so resources,
+ * here, and we don't know the IDs of any objects, so resources,
  * elements, and other objects must be retrieved by name with
  * $modx->getObject().
  */

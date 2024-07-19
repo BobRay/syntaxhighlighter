@@ -2,7 +2,7 @@
 /**
  * SyntaxHighlighter plugin
  *
- * Copyright 2011-2017 Bob Ray <https://bobsguides.com>
+ * Copyright 2011-2024 Bob Ray <https://bobsguides.com>
  *
  * @author Bob Ray <https://bobsguides.com>
  * @version Version 1.0.0 Beta-1
@@ -64,4 +64,3 @@ $modx->regClientScript('<script type="text/javascript">
 </script>');
 
 return '';
-
