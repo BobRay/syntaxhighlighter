@@ -2,34 +2,21 @@
 
 <p>The SyntaxHighlighter package installs both a plugin and a snippet. Either one will highlight just about any kind of code and will provide line numbers in the &quot;gutter&quot; on the left side of the code. The line numbers can be turned off if you don't want them. You can use either the plugin or the snippet, but not both. For maximum speed, use neither one (see the section below on Speed Considerations).</p>
 
-<h3>The Plugin</h3><p>The SyntaxHighlighter plugin is enabled by default. To disable it, edit the plugin, check the &quot;disabled&quot; checkbox, and save the plugin.</p>
+<h4>[Syntax Highlighter is fully compatible with MODX 3 and PHP 8]</h4>
 
-<p>The plugin will fire on every page at your site. It is relatively fast, but it will slow the site down slightly as it parses every page looking for code to highlight. If you have a code-intensive site, this is fine, but if you only have code on a few pages, the snippet may be a better option. The plugin will only affect code in
-    <fixedpre>
-        <pre>
-    </fixedpre>
-    tags with a particular class (see the Usage section below).
-</p>
+<h3>The Plugin</h3><p>The SyntaxHighlighter plugin is enabled by default. To disnable it, edit the plugin, check the &quot;disabled&quot; checkbox, and save the plugin.</p>
 
-<p>The various kinds of highlighting &mdash; one for each type of code (HTML, PHP, CSS, etc.) &mdash; are called &quot;brushes&quot;. The
-    <fixedpre>&brushes</fixedpre>
-    property of the snippet will determine which brushes are loaded. For the plugin, you must specify every brush used on the site in the
-    <fixedpre>&brushes</fixedpre>
-    property.
-</p>
+<p>The plugin will fire on every page at your site. It is relatively fast, but it will slow the site down slightly as it parses every page looking for code to highlight, though most of this is done in JavaScript that will be cached by your browser. If you have a code-intensive site, this is fine, but if you only have code on a few pages, the snippet may be a better option. The plugin will only affect code in <code>&lt;pre></code> tags with a particular class (see the Usage section below).</p>
+
+<p>The various kinds of highlighting &mdash; one for each type of code (HTML, PHP, CSS, etc.) &mdash; are called &quot;brushes&quot;. The <code>&brushes</code> property of the snippet will determine which brushes are loaded. For the plugin, you must specify every brush used on the site in the <code>&brushes</code> property.</p>
 
 <h3>The System Setting</h3>
 
-<p>The
-    <fixedpre>syntaxhighlighter.theme</fixedpre>
-    System Setting sets the default theme to be used by SyntaxHighlighter. The theme will be used throughout the site. The available themes are: Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, and RDark. If you use the snippet, you can override the default theme on a particular page by using the
-    <fixedpre>&theme</fixedpre>
-    property in the snippet tag.
-</p>
+<p>The <code>syntaxhighlighter.theme</code> System Setting sets the default theme to be used by SyntaxHighlighter. The theme will be used throughout the site. The available themes are: Default, Django, Eclipse, Emacs, FadeToGrey, MDUltra, Midnight, and RDark. If you use the snippet, you can override the default theme on a particular page by using the <code>&theme</code> property in the snippet tag.</p>
 
 <br/>
 <div class="box">
-    <p>As of version 1.0.1, the theme files under the assets/components/syntaxhighlighter directory have been moved to the css/theme directory. The theme files in the css/ directory are no longer used. They haven't been removed in case you have a custom theme there. If you do, move it to the theme/ directory. The old files can be deleted.</p>
+  <p>As of version 1.0.1, the theme files under the assets/components/syntaxhighlighter directory have been moved to the css/theme directory. The theme files in the css/ directory are no longer used. They haven't been removed in case you have a custom theme there. If you do, move it to the theme/ directory. The old files can be deleted.</p>
 </div><br/>
 
 <h3>The Snippet</h3><p>The snippet is particularly useful if you only have code on a few pages, or if different pages have different kinds of code. You can specify the brushes to load in the snippet tag so that only the brushes used on the page are loaded. If no brushes are specified in the tag, the default brushes (JScript,Xml,Php,Css,Plain) are loaded. To highlight code on a page, place a SyntaxHighlighter snippet tag at the top of the page content (or in the template):</p>
@@ -46,54 +33,28 @@
 
 <p>The line above tells SH that you want the php brush. By default, brushes are loaded for php, css, xml, js, and plain. The plain brush styles the selection as preformatted, but does no highlighting. It's useful for MODX tags (though there really should be a brush for that too).</p>
 
-<p>There may be angle bracket within your code, for example, <code>if ($x < $y)</code>, it's important that any angle-brackets in the code be converted to HTML entities (
-    <fixedpre>&lt;</fixedpre>
-    and
-    <fixedpre>&gt;</fixedpre>
-    ) before SH sees the code, otherwise, SH may get confused. You can convert them manually, or you can use the FixedPre plugin to do it for you. FixedPre fires during OnParseDocument, so it will convert the code and remove the &lt;<fixedpre>fixedpre</fixedpre>&gt; tags before SyntaxHighlighter sees it. If you use FixedPre, do <b>not</b> convert the tags to HTML entities.
-</p>
+<p>There may be angle bracket within your code, for example, <code>if ($x < $y)</code>, it's important that any left angle-brackets in the code be converted to HTML entities (<code>&lt;</code>) before SH sees the code, otherwise, SH may get confused. You can convert them manually, or you can use the FixedPre plugin to do it for you. FixedPre fires during OnParseDocument, so it will convert the code and remove the <code>&lt;fixedpre></code> tags before SyntaxHighlighter sees it. If you use FixedPre, do <b>not</b> convert the tags to HTML entities.</p>
 
-<p>If you already have FixedPre installed, be sure to update it to at least version 1.0.2-pl. Earlier versions are not compatible with SyntaxHighlighter. Note that the later versions of FixedPre no longer insert
-    <fixedpre><span></fixedpre>
-    tags. If you use those for styling, see the FixedPre tutorial <a href="https://bobsguides.com/fixedpre-tutorial.html">here</a>.
-</p>
+<p>If you already have FixedPre installed, be sure to update it to at least version 1.0.2-pl. Earlier versions are not compatible with SyntaxHighlighter. Note that the later versions of FixedPre no longer insert <code>&lt;span></code> tags. If you use those for styling, see the FixedPre tutorial <a href="https://bobsguides.com/fixedpre-tutorial.html">here</a>.</p>
 
-<p>Important: If you use SyntaxHighlighter with FixedPre, make sure the FixedPre tags are inside the SyntaxHighlighter tags. Otherwise, FixedPre will &quot;entify&quot; the
-    <fixedpre>
-        <pre>
-    </fixedpre>
-    tags and SyntaxHighlighter won't see them.
-</p>
+<p>Important: If you use SyntaxHighlighter with FixedPre, make sure the FixedPre tags are inside the SyntaxHighlighter tags. Otherwise, FixedPre will &quot;entify&quot; the <code>&lt;pre></code> tags and SyntaxHighlighter won't see them.</p>
 
-<h3>Other Brushes</h3>
-<p>SH has many brushes including ones for SQL, AppleScript, ColdFusion, Delphi, Ruby, Python, Perl, VB, Java, and many more. To see the available brushes, look in the assets/components/syntaxhighlighter/scripts directory. In order to use other brushes, you need to specify them, separated by commas, in the
-    <fixedpre>&brushes</fixedpre>
-    property of SH.
-</p>
+<h3>Other Brushes</h3><p>SH has many brushes including ones for SQL, AppleScript, ColdFusion, Delphi, Ruby, Python, Perl, VB, Java, and many more. To see the available brushes, look in the assets/components/syntaxhighlighter/scripts directory. In order to use other brushes, you need to specify them, separated by commas, in the <code>&brushes</code> property of SH.</p>
 
-<p>The brush names are mixed case and must be specified correctly in the
-    <fixedpre>&brush</fixedpre>
-    property. They are the filenames from the scripts directory minus and leading &quot;sh&quot; and the extension. For example, the file shBrushJScript.js is specified in the
-    <fixedpre>&brushes</fixedpre>
-    property as 'JScript'.<p>
+<p>The brush names are mixed case and must be specified correctly in the <code>&brush</code> property. They are the filenames from the scripts directory minus and leading &quot;sh&quot; and the extension. For example, the file <code>shBrushJScript.js</code is specified in the <code>&brushes</code> property as 'JScript'.<p>
 
 <p>When you specify the brush in the <code>&lt;pre></code> tag, however, you must use the lower-case alias for the brush. In the case of the JScript brush, the alias is js. The default brush aliases are php, css, xml, js, and plain. Note that xml is used to highlight both XML and HTML. For other brushes, you can look at the end of the brush.js file that's being included to find out what the alias is, though it's usually a lowercase version of the code type (e.g., python, ruby, sql, perl, java, vb, bash, csharp, etc.).</p>
 
-<p>If you specify a brush in the <code>&lt;pre></code> tag that is not loaded in the
-    <fixedpre>&brush</fixedpre>
-    property, a JavaScript alert will pop up and tell you the name of the missing brush.
-</p>
+<p>If you specify a brush in the <code>&lt;pre></code> tag that is not loaded in the <code>&brush</code> property, a JavaScript alert will pop up and tell you the name of the missing brush.</p>
 
-<p>Important: The brushes to be loaded by the <code>&brushes</code> property are case-sensitive and must match the brush-name part of the file name. When you specify a brush in a
-    <fixedpre>
-        <pre>
-    </fixedpre>
-    tag, however, the brush name must be all lowercase.
-</p>
+<p>Important: The brushes to be loaded by the <code>&brushes</code> property are case-sensitive and must match the brush-name part of the file name. When you specify a brush in a <code>&lt;pre></code> tag, however, the brush name must be all lowercase.</p>
 
 <h3>Options</h3><p>Various options can be specified in the <code>&lt;pre></code> tag by adding them after the class specification. Here's what the most common ones look like in a tag:</p>
 
-<pre>&lt;pre class="brush: php; toolbar: true; gutter: true; highlight: [2,3];"&lt;/pre></pre>
+<pre>&lt;pre class="brush: php; toolbar: true; gutter: true; highlight: [2,3];">
+   /* Code here */
+&lt;/pre>
+</pre>
 
 <p>The option settings shown above will turn the toolbar (the icon on the right side of preformatted sections) and the line numbers off, and will highlight lines two and three of the code. Notice the semicolon at the end of each option specification.</p>
 
@@ -130,12 +91,7 @@
 
 <h3>Speed Considerations</h3><p>There are a number of ways to speed up the operation of SyntaxHighlighter. The easiest is to just eliminate any brushes you don't use on the site from the <code>brushes</code> property of the plugin or specify just the brushes you need in the snippet tag.</p>
 
-<p>Another trick is to enable SH using either the snippet or plugin and view the source code of a page. Copy the relevant SH lines directly into your template(s) or page content at the appropriate places, then disable the SyntaxHighlighter plugin or remove the snippet tag. Don't forget the script at the bottom of the page. It can be moved below the final
-    <fixedpre>
-        <html>
-    </fixedpre>
-    tag so that the browser will finish rendering the HTML before executing the function, but visitors on slow connections may see the unformatted code before the formatted code appears.
-</p>
+<p>Another trick is to enable SH using either the snippet or plugin and view the source code of a page. Copy the relevant SH lines directly into your template(s) or page content at the appropriate places, then disable the SyntaxHighlighter plugin or remove the snippet tag. Don't forget the script at the bottom of the page. It can be moved below the final <code>&lt;html></code> tag so that the browser will finish rendering the HTML before executing the function, but visitors on slow connections may see the unformatted code before the formatted code appears.</p>
 
 <p>Further speed increases can be gained by appending the content of the two CSS files into your site's CSS file and removing the SyntaxHighlighter CSS file references in the template.</p>
 
