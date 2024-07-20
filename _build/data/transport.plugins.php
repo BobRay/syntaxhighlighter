@@ -41,7 +41,7 @@ $plugins[1]= $modx->newObject('modplugin');
 $plugins[1]->fromArray(array(
     'id' => 1,
     'name' => 'SyntaxHighlighter',
-    'disabled' => 1,
+    'disabled' => 0,
     'description' => 'SyntaxHighlighter '.PKG_VERSION.'-'.PKG_RELEASE
             ." A Revolution version of Alex Gorbatchev's JS Syntax Highlighter",
     'plugincode' => getPluginContent($sources['source_core'].'/elements/plugins/syntaxhighlighter.plugin.php'),
