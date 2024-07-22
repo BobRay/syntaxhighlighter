@@ -39,7 +39,7 @@
 /** @var  $scriptProperties array */
 
 
-$default_theme = $modx->getOption('syntaxhighlighter.theme', null, 'Default', true);
+$default_theme = $modx->getOption('syntaxhighlighter.theme', $scriptProperties, 'Default', true);
 $theme = $modx->getOption('theme', $scriptProperties, '', true);
 $theme = !empty($theme) ? $theme : $default_theme;
 
