@@ -28,13 +28,6 @@
  * @subpackage build
  */
 
-/* Example Resolver script */
-
-/* The $modx object is not available here. In its place we
- * use $object->xpdo
- */
-
-
 /* @var modTransportPackage $transport */
 /* @var $object xPDO */
 
@@ -47,12 +40,6 @@ if ($transport) {
 $prefix = $modx->getVersionData()['version'] >= 3
    ? 'MODX\Revolution\\'
    : '';
-
-/* Remember that the files in the _build directory are not available
- * here, and we don't know the IDs of any objects, so resources,
- * elements, and other objects must be retrieved by name with
- * $modx->getObject().
- */
 
 /* Connecting plugins to the appropriate system events and
  * connecting TVs to their templates is done here.
@@ -172,6 +159,16 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
             if ($setting->get('value') == 'default') {
                 $setting->set('value', 'Default');
                 $setting->save();
+            }
+        }
+
+        if (isset($_SESSION['plugin_disabled_status'])) {
+            $disabled = $_SESSION['plugin_disabled_status'];
+            $plugin = $modx->getObject($prefix . 'modPlugin', array('name' => 'SyntaxHighlighter'));
+
+            if ($plugin) {
+                $plugin->set('disabled', $disabled);
+                $plugin->save();
             }
         }
 
