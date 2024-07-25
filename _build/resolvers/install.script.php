@@ -1,11 +1,11 @@
 <?php
 
 /**
- * SyntaxHighlighter resolver script - runs on install.
+ * SyntaxHighlighter resolver script - runs on installation.
  *
  * Copyright 2011-2024 Bob Ray <https://bobsguides.com>
  * @author Bob Ray <https://bobsguides.com>
- * 11/07/2011
+ * @created 11/07/2011
  *
  * SyntaxHighlighter is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
@@ -174,6 +174,7 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
                 $setting->save();
             }
         }
+
 
         $success = true;
         break;
