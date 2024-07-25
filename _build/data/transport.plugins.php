@@ -26,8 +26,11 @@
  * @subpackage build
  */
 
+/** @var modX $modx */
+/** @var array $sources */
+
 if (! function_exists('getPluginContent')) {
-    function getpluginContent($filename) {
+    function getPluginContent($filename) {
         $o = file_get_contents($filename);
         $o = str_replace('<?php','',$o);
         $o = str_replace('?>','',$o);
@@ -37,7 +40,7 @@ if (! function_exists('getPluginContent')) {
 }
 $plugins = array();
 
-$plugins[1]= $modx->newObject('modplugin');
+$plugins[1]= $modx->newObject('modPlugin');
 $plugins[1]->fromArray(array(
     'id' => 1,
     'name' => 'SyntaxHighlighter',
