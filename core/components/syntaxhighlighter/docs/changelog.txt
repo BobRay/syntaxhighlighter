@@ -3,8 +3,9 @@ Changelog for SyntaxHighlighter
 SyntaxHighlighter 1.0.3
 -----------------------
  - Updates for MODX 3 and PHP 8
- - Improve docs
- - Enable plugin by default
+ - Significantly improved docs
+ - Plugin enabled by default
+ - Preserve disabled status on upgrade
 
 SyntaxHighlighter 1.0.1
 -----------------------
