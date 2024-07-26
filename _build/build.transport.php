@@ -206,6 +206,14 @@ if ($hasPlugins) {
  */
 $vehicle = $builder->createVehicle($category,$attr);
 
+if ($hasValidator) {
+    $modx->log(modX::LOG_LEVEL_INFO, 'Adding in Validator.');
+    $vehicle->validate('php', array(
+        'source' => $sources['validators'] . 'install.validator.php',
+    ));
+}
+
+
 /* package in script resolver if any */
 if ($hasResolver) {
     $modx->log(modX::LOG_LEVEL_INFO,'Adding in Script Resolver.');
@@ -213,6 +221,9 @@ if ($hasResolver) {
         'source' => $sources['resolvers'] . 'install.script.php',
     ));
 }
+
+
+
 /* This section transfers every file in the local
  syntaxhighlighters/syntaxhighlighter/assets directory to the
  target site's assets/syntaxhighlighter directory on install.

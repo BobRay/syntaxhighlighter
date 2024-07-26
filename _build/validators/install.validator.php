@@ -45,8 +45,7 @@ $prefix = $modx->getVersionData()['version'] >= 3
 
 $success = true;
 
-$modx->log(xPDO::LOG_LEVEL_INFO,'Running PHP Validator.');
-/* @var $options array */
+/** @var $options array */
 
 switch($options[xPDOTransport::PACKAGE_ACTION]) {
     /* This code will execute during installation */
@@ -55,12 +54,19 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
 
     /* This code will execute during an upgrade */
     case xPDOTransport::ACTION_UPGRADE:
-        $plugin = $modx->getObject($prefix . 'modPlugin', array ('name' => 'SyntaxHighlighter'));
+        if (! isset($_SESSION['validator_run'])) {
+            $modx->log(xPDO::LOG_LEVEL_INFO, 'Running PHP Validator.');
+            /* @var $options array */
+            $plugin = $modx->getObject($prefix . 'modPlugin', array('name' => 'SyntaxHighlighter'));
 
-        if ($plugin) {
-            $_SESSION['plugin_disabled_status'] = $plugin->get('disabled');
+            if ($plugin) {
+                $status = $plugin->get('disabled');
+                $_SESSION['plugin_disabled_status'] = $status;
+                $msg = $status ? 'disabled' : 'enabled';
+                $modx->log(xPDO::LOG_LEVEL_INFO, 'Preserving plugin disabled status - ' . $msg);
+            }
         }
-        $modx->log(xPDO::LOG_LEVEL_INFO, 'Preserving plugin disabled status');
+        $_SESSION['validator_run'] = true;
         break;
 
     /* This code will execute during uninstallation */

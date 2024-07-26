@@ -80,7 +80,7 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
 
                     $modx->log(xPDO::LOG_LEVEL_INFO,'Assigning Events to Plugin ' . $plugin);
 
-                    foreach($pluginEvents as $k => $event) {
+                    foreach($pluginEvents as $j => $event) {
                         $intersect = $modx->newObject($prefix . 'modPluginEvent');
                         $intersect->set('event',$event);
                         $intersect->set('pluginid',$pluginObj->get('id'));
@@ -161,19 +161,37 @@ switch($options[xPDOTransport::PACKAGE_ACTION]) {
                 $setting->save();
             }
         }
-
+        $statusKnown = false;
         if (isset($_SESSION['plugin_disabled_status'])) {
-            $disabled = $_SESSION['plugin_disabled_status'];
-            $plugin = $modx->getObject($prefix . 'modPlugin', array('name' => 'SyntaxHighlighter'));
+            $status = $_SESSION['plugin_disabled_status'];
+            $statusKnown = true;
+            $msg = $status ? 'disabled' : 'enabled';
 
-            if ($plugin) {
-                $plugin->set('disabled', $disabled);
-                $plugin->save();
-            }
+            $modx->log(xPDO::LOG_LEVEL_INFO, 'Attempting to restore plugin disabled status: ' . $msg);
+        } else {
+            $modx->log(xPDO::LOG_LEVEL_INFO, 'Could not get plugin disabled status from session variable -- Check plugin disabled status manually');
         }
 
+        if ($statusKnown && isset($status)) {
+            $plugin = $modx->getObject($prefix . 'modPlugin', array('name' => 'SyntaxHighlighter'));
 
+
+            if ($plugin) {
+                $plugin->set('disabled', $status);
+                $msg = $status ? 'disabled' : 'enabled';
+                if ($plugin->save()) {
+                    $modx->log(xPDO::LOG_LEVEL_INFO, 'Restored plugin disabled status - ' . $msg);
+                } else {
+                    $modx->log(xPDO::LOG_LEVEL_INFO, 'Failed to save plugin -- check disabled status manually');
+                }
+
+            } else {
+                $modx->log(xPDO::LOG_LEVEL_INFO, 'Could not find plugin -- check disabled status manually');
+            }
+        }
         $success = true;
+        unset($_SESSION['plugin_disabled_status']);
+        unset($_SESSION['validator_run']);
         break;
 
     /* This code will execute during uninstallation */
