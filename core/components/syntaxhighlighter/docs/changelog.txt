@@ -1,5 +1,15 @@
 Changelog for SyntaxHighlighter
 
+SyntaxHighlighter 1.1.0 (karamble fork)
+---------------------------------------
+ - Added 21 new brushes for modern languages and config formats
+ - Programming languages: Go, Rust, TypeScript, Swift, Kotlin, Zig, Julia, R, Lua, CUDA
+ - Config formats: Yaml, Toml, Json, Json5/Jsonc, Hcl/Terraform, Dockerfile, Nginx, Makefile
+ - Markup: Markdown
+ - API formats: GraphQL, Protobuf
+ - All new brushes follow the SyntaxHighlighter 3.x IIFE pattern and are
+   drop-in compatible with the existing snippet loader
+
 SyntaxHighlighter 1.0.3
 -----------------------
  - Updates for MODX 3 and PHP 8
