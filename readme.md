@@ -14,15 +14,15 @@
 
 **Questions about using SyntaxHighlighter** [MODX Forums](https://community.modx.com)
 
-SyntaxHighlighter is fairly straight port of Alex Gorbatchev's great JS syntax highlighter, adapted for MODX Revolution. The package includes both a plugin and a snippet version of the highlighter. Most of the code in this component, other than the plugin, snippet, and install script, was written by Alex Gorbatchev.
+SyntaxHighlighter is fairly straight port of Alex Gorbatchev's great JS syntax highlighter, adapted for MODX Revolution. The package includes both a plugin and a snippet version of the highlighter. The original code in this component, other than the plugin, snippet, and install script, was written by Alex Gorbatchev. The new brushed added in Verison 1.1.0-pl were created by karamble.
 
-## Brush coverage (karamble fork)
+## New Brushes in Version 1.1.0-pl)
 
-This fork ships 21 additional brushes on top of the stock SyntaxHighlighter 3.x set, covering modern programming languages, config formats, markup, and API description formats. Pass any of the names below to the snippet's `&brushes` parameter or use the matching `brush: <name>` class on a `<pre>` element.
+This version contains 21 additional brushes added by karamble in addition to the stock SyntaxHighlighter 3.x set, covering modern programming languages, config formats, markup, and API description formats. Pass any of the names below to the snippet's `&brushes` parameter or use the matching `brush: <name>` class on a `<pre>` element.
 
 **Programming languages (stock):** Bash, Python, JScript, Php, Css, Cpp, CSharp, Java, Ruby, Perl, Scala, Groovy, Sql, Vb, Delphi, Erlang, PowerShell, AppleScript, AS3, ColdFusion, JavaFX, Sass, Plain, Xml
 
-**Programming languages (new in this fork):** Go, Rust, TypeScript, Swift, Kotlin, Zig, Julia, R, Lua, Cuda
+**Programming languages (new):** Go, Rust, TypeScript, Swift, Kotlin, Zig, Julia, R, Lua, Cuda
 
 **Config and infrastructure formats (new):** Yaml, Toml, Json, Json5/Jsonc, Hcl (Terraform), Dockerfile, Nginx, Makefile
 
