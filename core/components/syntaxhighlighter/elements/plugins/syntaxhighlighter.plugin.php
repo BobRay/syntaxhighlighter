@@ -5,8 +5,8 @@
  * Copyright 2011-2024 Bob Ray <https://bobsguides.com>
  *
  * @author Bob Ray <https://bobsguides.com>
- * @version Version 1.0.0 Beta-1
- * 11/07/2011
+
+ * Created 11/07/2011
  *
  * SyntaxHighlighter is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free

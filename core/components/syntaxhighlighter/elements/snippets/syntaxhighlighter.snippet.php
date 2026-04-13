@@ -2,11 +2,10 @@
 /**
  * SyntaxHighlighter snippet
  *
- * Copyright 2011-2024 Bob Ray <https://bobsguides.com>
+ * Copyright 2011-2026 Bob Ray <https://bobsguides.com>
  *
  * @author Bob Ray <https://bobsguides.com>
- * @version Version 1.0.1 Beta-1
- * 09/30/2015
+ * Created 09/30/2015
  *
  * SyntaxHighlighter is free software; you can redistribute it and/or modify it
  * under the terms of the GNU General Public License as published by the Free
